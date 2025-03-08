@@ -11,7 +11,7 @@ func main() {
 }
 
 func callNext() {
-	fmt.Println("Docker, ты следующий!")
+	fmt.Println("Docker, ты следующий!!!")
 }
 
 func timeNow() {
