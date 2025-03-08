@@ -3,5 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("Git, ты следующий!")
+	callNext()
+}
+
+func callNext() {
+	fmt.Println("Docker, ты следующий!")
 }
