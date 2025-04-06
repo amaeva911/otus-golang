@@ -2,19 +2,35 @@ package main
 
 import (
 	"fmt"
-	"time"
+	"log"
 )
 
+func scanNumbersInput() int {
+	var number int
+	_, err := fmt.Scan(&number)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return number
+}
+
+func drawBoard(lines int, columns int) {
+	for y := 0; y < columns; y++ {
+		for x := 0; x < lines; x++ {
+			print("#  ")
+		}
+		print("\n")
+	}
+
+}
+
 func main() {
-	callNext()
-	timeNow()
-}
+	fmt.Println("Введите число строк: ")
+	numberOfLines := scanNumbersInput()
+	fmt.Println("Введите число столбцов: ")
+	numberOfColumns := scanNumbersInput()
 
-func callNext() {
-	fmt.Println("Docker, ты следующий!!!")
-}
+	fmt.Printf("Рисуем шахматную доску %v на %v.\n", numberOfLines, numberOfColumns)
 
-func timeNow() {
-	t := time.Now()
-	fmt.Printf(t.Format(time.RFC3339))
+	drawBoard(numberOfLines, numberOfColumns)
 }
