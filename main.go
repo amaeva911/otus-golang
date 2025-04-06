@@ -9,6 +9,7 @@ func scanNumbersInput() int {
 	var number int
 	_, err := fmt.Scan(&number)
 	if err != nil {
+		fmt.Println("Неверный формат вводимых данных. Ожидается целое число.")
 		log.Fatal(err)
 	}
 	return number
