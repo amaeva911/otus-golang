@@ -14,9 +14,9 @@ func scanNumbersInput() int {
 	return number
 }
 
-func drawBoard(lines int, columns int) {
-	for y := 0; y < columns; y++ {
-		for x := 0; x < lines; x++ {
+func drawBoard(columns int, lines int) {
+	for y := 0; y < lines; y++ {
+		for x := 0; x < columns; x++ {
 			print("#  ")
 		}
 		print("\n")
@@ -26,11 +26,11 @@ func drawBoard(lines int, columns int) {
 
 func main() {
 	fmt.Println("Введите число строк: ")
-	numberOfLines := scanNumbersInput()
-	fmt.Println("Введите число столбцов: ")
 	numberOfColumns := scanNumbersInput()
+	fmt.Println("Введите число столбцов: ")
+	numberOfLines := scanNumbersInput()
 
-	fmt.Printf("Рисуем шахматную доску %v на %v.\n", numberOfLines, numberOfColumns)
+	fmt.Printf("Рисуем шахматную доску %v на %v.\n", numberOfColumns, numberOfLines)
 
 	drawBoard(numberOfLines, numberOfColumns)
 }
