@@ -2,19 +2,51 @@ package main
 
 import (
 	"fmt"
-	"time"
+	"log"
 )
 
+func scanNumbersInput() int {
+	var number int
+	_, err := fmt.Scan(&number)
+	if err != nil {
+		fmt.Println("Неверный формат вводимых данных. Ожидается целое число.")
+		log.Fatal(err)
+	}
+	return number
+}
+
+func drawBoard(columns int, lines int) {
+	for y := 0; y < lines; y++ {
+		switch {
+		case y%2 != 0:
+			for x := 0; x < columns; x++ {
+				if x%2 == 0 {
+					fmt.Print("  ")
+				} else {
+					fmt.Print("# ")
+				}
+			}
+		case y%2 == 0:
+			for x := 0; x < columns; x++ {
+				if x%2 != 0 {
+					fmt.Print("  ")
+				} else {
+					fmt.Print("# ")
+				}
+			}
+		}
+		print("\n")
+	}
+
+}
+
 func main() {
-	callNext()
-	timeNow()
-}
+	fmt.Println("Введите число строк: ")
+	numberOfColumns := scanNumbersInput()
+	fmt.Println("Введите число столбцов: ")
+	numberOfLines := scanNumbersInput()
 
-func callNext() {
-	fmt.Println("Docker, ты следующий!!!")
-}
+	fmt.Printf("Рисуем шахматную доску %v на %v.\n", numberOfColumns, numberOfLines)
 
-func timeNow() {
-	t := time.Now()
-	fmt.Printf(t.Format(time.RFC3339))
+	drawBoard(numberOfLines, numberOfColumns)
 }
