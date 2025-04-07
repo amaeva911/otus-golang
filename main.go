@@ -17,8 +17,23 @@ func scanNumbersInput() int {
 
 func drawBoard(columns int, lines int) {
 	for y := 0; y < lines; y++ {
-		for x := 0; x < columns; x++ {
-			print("#  ")
+		switch {
+		case y%2 != 0:
+			for x := 0; x < columns; x++ {
+				if x%2 == 0 {
+					fmt.Print("  ")
+				} else {
+					fmt.Print("# ")
+				}
+			}
+		case y%2 == 0:
+			for x := 0; x < columns; x++ {
+				if x%2 != 0 {
+					fmt.Print("  ")
+				} else {
+					fmt.Print("# ")
+				}
+			}
 		}
 		print("\n")
 	}
